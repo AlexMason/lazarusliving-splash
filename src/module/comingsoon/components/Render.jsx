@@ -18,7 +18,8 @@ export default function Render() {
     <div className="bg-white p-10 w-[40rem] pb-5">
       <div className="">
         {/* <Image src={LogoImage} layout="intrinsic" width={`${4741/imageScale}px`} height={`${1997/imageScale}px`} /> */}
-        <Image src={LogoImage} layout="intrinsic" />
+        {/* <Image src={LogoImage} layout="intrinsic" /> */}
+        <img src={"logo.jpg"} />
       </div>
       <div className="flex flex-col gap-4 text-lg">
         <p className="text-2xl tracking-wider text-center">Lazarus Living is a community organization dedicated to providing medical services and resources to the vulnerable and underserved homeless populations in the Indianapolis area.</p>
