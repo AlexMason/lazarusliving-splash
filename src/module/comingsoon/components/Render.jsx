@@ -21,7 +21,7 @@ export default function Render() {
         <Image src={LogoImage} layout="intrinsic" />
       </div>
       <div className="flex flex-col gap-4 text-lg">
-        <p className="text-2xl tracking-wider text-center">Lazarus Living is a community organization dedicated to providing health care and resources to the vulnerable and underserved homeless populations in the Indianapolis area.</p>
+        <p className="text-2xl tracking-wider text-center">Lazarus Living is a community organization dedicated to providing medical services and resources to the vulnerable and underserved homeless populations in the Indianapolis area.</p>
         <hr className="text-gray-900 border-gray-300" />
         <p style={{ "textIndent": "2rem" }}>We currently rely on our volunteers to provide these critcal services to the community.  We have a need for caregivers, medical professionals, educators, chefs, housekeepers, plumbers, electricians, and so much more.</p>
         <p style={{ "textIndent": "2rem" }}>If you are interested in helping us with our mission, please visit our social media page for <span className="underline">upcoming events</span> in the community, or consider <span className="underline">donating</span> to our cause.</p>
