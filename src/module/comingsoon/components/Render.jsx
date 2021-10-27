@@ -22,18 +22,18 @@ export default function Render() {
         <img src={'logo.jpg'} />
       </div>
       <div className="flex flex-col gap-4 text-lg">
-        <p className="text-2xl tracking-wider text-center">Lazarus Living is a community organization dedicated to providing medical services and resources to the vulnerable and underserved homeless populations in the Indianapolis area.</p>
-        <hr className="text-gray-900 border-gray-300" />
+        <p className="text-2xl tracking-wider text-center mt-2">Lazarus Living is a community organization dedicated to providing medical services and resources to the vulnerable and underserved homeless populations in the Indianapolis area.</p>
+        <hr className="text-gray-900 border-gray-300 m-2" />
         <p style={{ "textIndent": "2rem" }}>We currently rely on our volunteers to provide these critcal services to the community.  We have a need for caregivers, medical professionals, educators, chefs, housekeepers, plumbers, electricians, and so much more.</p>
         <p style={{ "textIndent": "2rem" }}>If you are interested in helping us with our mission, please visit our social media page for <a class="underline" href="https://www.facebook.com/lazarusliving/events">upcoming events</a> in the community, or consider <span className="underline cursor-pointer" onClick={() => setDonateModalOpen(true)}>donating</span> to our cause.</p>
-        <div className="text-5xl mx-auto pt-5">
-          <a href="https://www.facebook.com/lazarusliving" target="_blank"><FaFacebook className="hover:text-[#4267B2]" /></a>
-        </div>
         <div className="flex justify-center">
-          <button className="text-white bg-black p-2 px-4 rounded-lg hover:bg-gray-800 hover:shadow-lg" onClick={() => setDonateModalOpen(true)}>Contribute / Donate</button>
+          <button className="text-white bg-black p-2 m-5 px-4 rounded-lg hover:bg-gray-800 hover:shadow-lg" onClick={() => setDonateModalOpen(true)}>Contribute / Donate</button>
         </div>
         <hr />
-        <p className="text-xs text-center">&copy; Lazarus Living Inc. 2021 | Lazarus Living Inc. is a 501(c)3 organization.</p>
+        <p className="text-sm text-center">&copy; Lazarus Living Inc. 2021 | Lazarus Living Inc. is a 501(c)3 organization.</p>
+        <div className="text-5xl mx-auto p-1">
+          <a href="https://www.facebook.com/lazarusliving" target="_blank"><FaFacebook className="hover:text-[#4267B2]" /></a>
+        </div>
       </div>
     </div>
 
