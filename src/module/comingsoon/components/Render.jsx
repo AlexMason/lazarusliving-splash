@@ -29,10 +29,10 @@ export default function Render() {
           <a href="https://www.facebook.com/lazarusliving" target="_blank"><FaFacebook className="hover:text-[#4267B2]" /></a>
         </div>
         <div className="flex justify-center">
-          <button className="text-white bg-black p-2 px-4 rounded-lg hover:bg-gray-800 hover:shadow-lg" onClick={() => setDonateModalOpen(true)}>Click to Contribue / Donate</button>
+          <button className="text-white bg-black p-2 px-4 rounded-lg hover:bg-gray-800 hover:shadow-lg" onClick={() => setDonateModalOpen(true)}>Contribute / Donate</button>
         </div>
         <hr />
-        <p className="text-xs text-center">&copy; Lazarus Living Inc. 2021 | Lazarus Living Inc. is a 501(c) organization.</p>
+        <p className="text-xs text-center">&copy; Lazarus Living Inc. 2021 | Lazarus Living Inc. is a 501(c)3 organization.</p>
       </div>
     </div>
     <DonateModal open={donateModalOpen} close={() => setDonateModalOpen(false)} />
