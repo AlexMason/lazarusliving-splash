@@ -1,5 +1,5 @@
 import ComingSoon from '../module/comingsoon'
 
-export default function Home() {
+export default function Donate() {
   return <ComingSoon />;
 }
