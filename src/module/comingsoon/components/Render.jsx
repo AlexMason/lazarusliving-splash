@@ -25,7 +25,7 @@ export default function Render() {
         <p className="text-2xl tracking-wider text-center mt-2">Lazarus Living is a community organization dedicated to providing medical services and resources to the vulnerable and underserved homeless populations in the Indianapolis area.</p>
         <hr className="text-gray-900 border-gray-300 m-2" />
         <p style={{ "textIndent": "2rem" }}>We currently rely on our volunteers to provide these critcal services to the community.  We have a need for caregivers, medical professionals, educators, chefs, housekeepers, plumbers, electricians, and so much more.</p>
-        <p style={{ "textIndent": "2rem" }}>If you are interested in helping us with our mission, please visit our social media page for <a class="underline" href="https://www.facebook.com/lazarusliving/events">upcoming events</a> in the community, or consider <span className="underline cursor-pointer" onClick={() => setDonateModalOpen(true)}>donating</span> to our cause.</p>
+        <p style={{ "textIndent": "2rem" }}>If you are interested in helping us with our mission, please visit our social media page for <a className="underline" href="https://www.facebook.com/lazarusliving/events">upcoming events</a> in the community, or consider <span className="underline cursor-pointer" onClick={() => setDonateModalOpen(true)}>donating</span> to our cause.</p>
         <div className="flex justify-center">
           <button className="text-white bg-black p-2 m-5 px-4 rounded-lg hover:bg-gray-800 hover:shadow-lg" onClick={() => setDonateModalOpen(true)}>Contribute / Donate</button>
         </div>

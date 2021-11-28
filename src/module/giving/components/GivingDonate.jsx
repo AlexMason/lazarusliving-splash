@@ -1,19 +1,17 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { useRouter } from 'next/dist/client/router';
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useContext } from 'react'
+import { CartContext } from '../contexts/CartContext';
 
-export default function DonateModal({ open, close }) {
+export default function GivingDonateModal({ open, close }) {
   const router = useRouter();
+  const cartContext = useContext(CartContext)
 
-  let [isOpen, setIsOpen] = useState(open);
-  let [selectedAmt, setSelectedAmt] = useState(2);
-  let [otherAmt, setOtherAmt] = useState(20)
   let [firstName, setFirstName] = useState("");
   let [lastName, setLastName] = useState("");
   let [email, setEmail] = useState("");
   let [error, setError] = useState([]);
   let [validated, setValidated] = useState(false);
-  let donationAmounts = [250, 100, 30, 15, 5, "Other"];
 
   let handleSubmit = () => {
     setValidated(true);
@@ -30,7 +28,7 @@ export default function DonateModal({ open, close }) {
        */
 
       let customDonateURL = `
-       https://www.paypal.com/donate/?first_name=${firstName}&last_name=${lastName}&email=${email}&amount=${selectedAmt == 5 ? otherAmt : donationAmounts[selectedAmt]}&business=timwalbridge%40hotmail.com`;
+       https://www.paypal.com/donate/?first_name=${firstName}&last_name=${lastName}&email=${email}&amount=${cartContext.total}&business=timwalbridge%40hotmail.com`;
 
       console.log(customDonateURL)
       router.push(customDonateURL);
@@ -43,7 +41,6 @@ export default function DonateModal({ open, close }) {
   let validate = () => {
     let errors = [];
 
-    if (selectedAmt == 5 && (otherAmt <= 0 || !parseInt(otherAmt))) errors.push("You must provide an amount to donate when selecting this option, otherwise pick one of the pretermined options below.");
     if (firstName.length < 1) errors.push("Please fill out your first name");
     if (lastName.length < 1) errors.push("Please fill out your last name");
     if (!email.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) errors.push("Please enter a proper email.");
@@ -53,7 +50,7 @@ export default function DonateModal({ open, close }) {
 
   useEffect(() => {
     setError(validate());
-  }, [selectedAmt, otherAmt, firstName, lastName, email])
+  }, [firstName, lastName, email])
 
   return (
     <>
@@ -102,7 +99,7 @@ export default function DonateModal({ open, close }) {
 
                 <div className="mt-5">
                   <p className="text-sm text-gray-500 mx-2">
-                    Your generosity is what allows us to execute our mission and help people.  If you cannot contribute financially we do still have needs for volunteers and physical items such as clothes and non-perishable food.
+                    Your generosity is what allows us to execute our mission and help people.  Thank you for participating in our 2021 <a href="https://www.givingtuesday.org/" target="_blank" className="underline hover:text-black cursor-pointer">#GivingTuesday</a> event.
                   </p>
                 </div>
 
@@ -114,34 +111,7 @@ export default function DonateModal({ open, close }) {
                   </p>
                 </div>}
 
-                <div className="flex flex-row flex-wrap text-center mt-5 mx-5">
-                  {
-                    donationAmounts.map((amt, idx) => {
-                      return <div className="w-1/3 px-1">
-                        <button className={"border-2 rounded-lg w-full my-1 p-2 "
-                          + (selectedAmt == idx ? "border-gray-700 bg-black text-white" : "border-gray-500 hover:border-gray-700")}
-                          onClick={() => setSelectedAmt(idx)}
-                        >
-                          {parseInt(amt) ? "$" + amt : amt}
-                        </button>
-                      </div>
-                    })
-                  }
-
-                </div>
-                {selectedAmt == 5 && <div className="mx-7 mt-1 float flex items-center justify-between">
-                  <label>Amount</label>
-                  <div className="border-gray-500 rounded-lg p-1.5 border-2 min-w-0">
-                    <span>$</span>
-                    <input
-                      type="number"
-                      placeholder="$20"
-                      className="ml-1"
-                      onChange={(e) => setOtherAmt(parseInt(e.target.value))}
-                      value={otherAmt}
-                    />
-                  </div>
-                </div>}
+                <div className="text-center mt-5 text-xl">Total: ${cartContext.total}</div>
 
                 <div>
                   <hr className="mt-5 mb-3" />
